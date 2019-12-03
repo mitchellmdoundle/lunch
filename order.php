@@ -6,6 +6,7 @@
 <body>
 <br>
 <form action="addtoorder.php" method="post">
+
 Sandwich:
 <select name = "sandwich">
 <?php
@@ -22,13 +23,13 @@ echo('<option value='.$row["FoodID"].'>'.$row["Name"].'</option>');
 ?>
 </select>
 <br>
+
 Snack: 
 <select name = "snack">
 <?php
 
 $stmt = $conn->prepare("SELECT * from Food where type = 1");
 $stmt->execute();
-
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
@@ -37,6 +38,7 @@ echo('<option value='.$row["FoodID"].'>'.$row["Name"].'</option>');
 ?>
 </select>
 <br>
+
 Drink: 
 <select name = "drink">
 <?php
@@ -62,7 +64,7 @@ $stmt = $conn->prepare("SELECT * FROM basket");
 $stmt->execute();
 echo("<br>");
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-
+?>
 </form>
 </body>
 </html>

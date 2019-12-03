@@ -4,9 +4,8 @@ print_r($_POST);
 try{
     include_once("connection.php");
     array_map("htmlspecialchars", $_POST);
-    $stmt = $conn->prepare("INSERT INTO TblPupilStudies(Subjectid,Userid,Classposition,Classgrade,Exammark,Comment)VALUES (:subjects,:student,null,null,null,null)");
-            $stmt->bindParam(':student', $_POST["student"]);
-            $stmt->bindParam(':subjects', $_POST["subjects"]);
+    $stmt = $conn->prepare("INSERT INTO Basket(OrderID,SandwichID,SnackID,Sausage,DrinkID)VALUES (null,null,null,null,:sausage,null)");
+            $stmt->bindParam(':sausage', $_POST["sausage"]);
             $stmt->execute();
             }
 catch(PDOException $e)
