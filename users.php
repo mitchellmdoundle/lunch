@@ -10,7 +10,7 @@
   Password:<input type="password" name="passwd"><br>
   House:<input type="text" name="house"><br>
   <input type="radio" name="role" value="Pupil" checked> Pupil<br>
-  <input type="radio" name="role" value="Staff"> Teacher<br>
+  <input type="radio" name="role" value="Staff"> Staff<br>
   <input type="radio" name="role" value="Admin"> Admin<br>
   <input type="submit" value="Add User">
 </form>

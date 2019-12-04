@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,5 +69,8 @@ echo("<br>");
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 ?>
 </form>
+<?php
+echo $_SESSION["loggedinuser"];
+?>
 </body>
 </html>
