@@ -5,6 +5,7 @@
 </head>
 <body>
 <?php
-echo(SELECT * FROM Basket)
+echo('e')
+?>
 </body>
 </html>

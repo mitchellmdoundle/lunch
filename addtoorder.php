@@ -1,4 +1,5 @@
 <?php
+session_start();
 header("Refresh:5; url= order.php");
 print_r($_POST);
 try{
@@ -17,4 +18,11 @@ catch(PDOException $e)
     }
 
 $conn=null;
+echo ("<br>");
+echo $_SESSION["loggedinuser"];
+echo ("<br>");
+echo ("SELECT OrderID FROM basket ORDER BY OrderID DESC LIMIT 1");
+/* $stmt = $conn->prepare("INSERT INTO orders (OrderID,UserID,Dateneeded,Complete)VALUES (null,:userid,null,null)");
+            $stmt->bindParam(':userid', $_SESSION["loggedinuser"]);
+            $stmt->execute(); */
 ?>

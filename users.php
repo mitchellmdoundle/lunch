@@ -24,5 +24,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 echo($row["UserID"].', '.$row["Forename"].' '.$row["Surname"].', '.$row["House"].', '.$row["Role"].', '.$row["Password"]."<br>");
 }
 ?>
+<a href="http://localhost/lunch/login.php">Log Out</a>
 </body>
 </html>

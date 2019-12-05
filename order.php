@@ -72,5 +72,26 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 <?php
 echo $_SESSION["loggedinuser"];
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><a href="http://localhost/lunch/login.php">Log Out</a>
 </body>
 </html>

@@ -22,12 +22,14 @@ try{
         else if ($row['Role']==2){
             header('Location: users.php');
         }
-    
-    else {
-        echo('no');
     }
+    else {
+        echo('Incorrect Credentials');
+        header("Refresh:2; url= login.php");
     }
     }   
+    echo('Incorrect Credentials');
+    header("Refresh:2; url= login.php");
 }
 catch(PDOException $e)
     {
