@@ -17,12 +17,18 @@ catch(PDOException $e)
         echo "error".$e->getMessage();
     }
 
-$conn=null;
+
 echo ("<br>");
 echo $_SESSION["loggedinuser"];
 echo ("<br>");
-echo ("SELECT OrderID FROM basket ORDER BY OrderID DESC LIMIT 1");
-/* $stmt = $conn->prepare("INSERT INTO orders (OrderID,UserID,Dateneeded,Complete)VALUES (null,:userid,null,null)");
-            $stmt->bindParam(':userid', $_SESSION["loggedinuser"]);
-            $stmt->execute(); */
+$stmt = $conn->prepare("SELECT OrderID FROM basket ORDER BY OrderID DESC LIMIT 1");
+$stmt->execute();
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+{
+    $stmt1 = $conn->prepare("INSERT INTO orders (OrderID,UserID,Dateneeded,Complete)VALUES (:orderid,:userid,null,null)");
+    $stmt1->bindParam(':userid', $_SESSION["loggedinuser"]);
+    $stmt1->bindParam(':orderid', $row["OrderID"]);
+    $stmt1->execute();
+}
+$conn=null;
 ?>
