@@ -20,12 +20,24 @@ if ($_SESSION['Role']!=1)
 </form>
 <?php
 include_once('connection.php');
-$stmt = $conn->prepare("SELECT * FROM food");
+$stmt = $conn->prepare("SELECT * FROM food ORDER BY Type Asc");
 $stmt->execute();
 echo("<br>");
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-echo($row["FoodID"].', '.$row["Type"].' '.$row["Name"]."<br>");
+  if ($row["Type"]==0){
+    $type="Sandwich";
+  }
+  else if ($row["Type"]==1){
+    $type="Snack";
+  }
+  else if ($row["Type"]==2){
+    $type="Drink";
+  }
+  else{
+    $type="How did you do this.";
+  }
+echo($type.', '.$row["Name"]."<br>");
 }
 ?>
 <a href="http://localhost/lunch/showorders.php">Show Orders</a>
