@@ -13,6 +13,7 @@ try{
     if ($row['Password']==$_POST['passwd']){
         //echo('accepted');
         $_SESSION["loggedinuser"]=$row["UserID"];
+        $_SESSION["Role"]=$row["Role"];
         if ($row['Role']==0){
             header('Location: order.php');   
         }

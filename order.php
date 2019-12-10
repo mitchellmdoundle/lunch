@@ -1,5 +1,9 @@
 <?php
 session_start();
+if ($_SESSION['Role']!=0)
+{
+  header("Location:Login.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,6 +64,7 @@ echo('<option value='.$row["FoodID"].'>'.$row["Name"].'</option>');
 Sausage Roll:
 <input type="radio" name="sausage" value="Yes" checked> Yes
 <input type="radio" name="sausage" value="No"> No<br>
+Date needed: <input type="date" name="dateneeded" value="<?php echo date('Y-m-d'); ?>"><br>
 <input type="submit" value="Add to Basket">
 
 <?php

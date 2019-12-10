@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ($_SESSION['Role']!=1)
+{
+  header("Location:Login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,5 +28,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 echo($row["FoodID"].', '.$row["Type"].' '.$row["Name"]."<br>");
 }
 ?>
+<a href="http://localhost/lunch/showorders.php">Show Orders</a>
 </body>
 </html>
